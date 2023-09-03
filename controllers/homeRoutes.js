@@ -40,13 +40,5 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// Get dashboard
-router.get('/dashboard', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('dashboard');
-    return;
-  }
-  res.render('dashboard');
-})
 
 module.exports = router;
