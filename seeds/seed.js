@@ -12,15 +12,14 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  const blogPosts = await BlogPost.bulkCreate(blogPostData);
-
-  // const comments = await Comment.bulkCreate(commentData);
+  const blogPosts = [];
 
   for (const blogPost of blogPostData){
-    await BlogPost.create({
+    const createdBlogPost = await BlogPost.create({
       ...blogPost,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
+    blogPosts.push(createdBlogPost);
   }
 
   for (const comment of commentData) {
