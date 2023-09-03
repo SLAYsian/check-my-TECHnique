@@ -7,8 +7,9 @@ User.hasMany(BlogPost, {
   onDelete: 'CASCADE',
 });
 
-User.belongsToMany(Comment, {
+User.hasMany(Comment, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 })
 
 BlogPost.hasMany(Comment, {
@@ -17,17 +18,17 @@ BlogPost.hasMany(Comment, {
 });
 
 BlogPost.belongsTo(User, {
-  foreignKey: 'blog_post_id',
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-Comment.belongsToMany(User, {
-  foreignKey: 'comment_id',
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
 Comment.belongsTo(BlogPost, {
-  foreignKey: 'comment_id',
+  foreignKey: 'blog_post_id',
   onDelete: 'CASCADE',
 });
 
