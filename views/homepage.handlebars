@@ -3,7 +3,7 @@
     <div class="card flex-wrap">
       <div class="card-header">
         <h3><a href="./blogPost.handlebars">{{this.title}}</a></h3>
-        <p>Posted by {{this.creator}} on {{this.date_created}}</p>
+        <p>Posted by {{this.creator.username }} on {{format_date this.date_created}}</p>
       </div>
       <p class="card-body">{{this.content}}</p>
     </div>
