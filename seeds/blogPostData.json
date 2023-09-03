@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Node.js",
+    "content": "Node.js is an asynchronous JavaScript runtime environment that executes JavaScript code outside of a browser. This allows developers to code the back ends of their applications using JavaScript instead of another programming language. Node.js runs scripts on the server side to produce dynamic webpage content before the page is sent to the user's web browser."
+  },
+  {
+    "title": "Git",
+    "content": "Code files are typically collaborative, as it is common for developers to build on each other's work. To facilitate this collaboration and ensure code integrity, many developers use Git for version control, and GitHub to securely store and share their code online. \n \n Git has a steep learning curve, but with practice, using it can become second nature to you. To help you get started, this guide explains how to set up your Git environment and introduces some commonly used Git and terminal commands."
+  },
+  {
+    "title": "MySQL",
+    "content": "MySQL is widely considered the most reliable, scaleable, and developer-friendly open source relational database management system. It powers the back end of many popular social, streaming, and service web applications." 
+  },
+  {
+    "title": "Heroku",
+    "content": "Heroku is a cloud application platform that enables developers to build, run, and operate applications entirely in the cloud. Unlike GitHub pages, which only allows you to deploy static sites with HTML pages, Heroku allows you to deploy a server.js file that will run the Node.js process. You'll use the Heroku CLI to deploy apps to Heroku without leaving the command line."
+  },
+  {
+    "title": "README",
+    "content": "A polished GitHub profile is an important part of your public identity as a developer. Why? For one thing, it will most likely be the first place that potential employers look to evaluate your skills and professionalism. And it also allows you to connect with and showcase your work to other developers, which can lead to interesting collaborations. \n \n A key component of your profile, and one that many new developers overlook, is the README file that's associated with each respository. A README file acts like a virtual storefront to a repository—it's the first thing that a person sees when they visit a repo on GitHub. But it's also much more than that: README files contain essential information about the repo's project. Thus, the quality of a README file can differentiate a high-quality repo from a low-quality one."
+  },
+  {
+    "title": "Growth Mindset",
+    "content": "The term “growth mindset” is accredited to the research of Carol Dweck, an American psychologist and professor. Dweck acknowledges that we are all born with unique traits and talents, but having these traits and talents is the beginning and the end for those with a fixed mindset. Conversely, a growth mindset is aware of innate talents and traits, but also of the ability to develop new abilities and accomplishments through hard work."
+  },
+  {
+    "title": "HTML",
+    "content": "Hypertext Markup Language (HTML) is one of the three cornerstone languages used to develop webpages. \n \n HTML handles the standard markup of a page. Using HTML, we define the basic framework for the page and the elements we want to appear on it. \n \n Here are some of the things we define using HTML: text elements on the page, images on the page, and the order in which the elements appear on the page. \n \n HTML's role in web development is to define the framework for the page."
+  },
+  {
+    "title": "Server-side APIs",
+    "content": "Server-side APIs allow developers to access data made available by third-party companies and organizations. To use this data, developers can create applications that make requests to URLs, or endpoints, provided by those third-party organizations—and in turn, the endpoints respond with the requested data."
+  },
+  {
+    "title": "MondoDB",
+    "content": "MongoDB is a general purpose, document-based, distributed NoSQL database built for web application developers in the cloud era. It's one of the most popular database choices for modern applications."
+}
+]
