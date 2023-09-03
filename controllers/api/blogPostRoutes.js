@@ -14,7 +14,7 @@ router.get('/:id', async (req, res) => {
     {
       model: Comment,
       as: 'comments',
-      attributes: ['comment', 'createdAt'],
+      attributes: ['comment', 'date_created'],
       include: {
         model: User,
         attributes: ['username']
@@ -49,3 +49,5 @@ router.post('/:id/comments', withAuth, async (req,res) => {
       res.status(500).json(err);
     }
 });
+
+module.exports = router;

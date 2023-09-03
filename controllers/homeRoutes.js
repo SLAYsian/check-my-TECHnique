@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     {
       model: Comment,
       as: 'comments',
-      attributes: ['comment', 'createdAt'],
+      attributes: ['comment', 'date_created'],
       include: {
         model: User,
         attributes: ['username']
@@ -39,6 +39,5 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-
 
 module.exports = router;
