@@ -1,5 +1,5 @@
 const loginFormHandler = async (event) => {
-  preventDefault();
+  event.preventDefault();
 
   const username = document.querySelector('#username-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -12,8 +12,8 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      const user = await response.json();
-      sessionStorage.setItem('userId', user.id);
+      // const user = await response.json();
+      // sessionStorage.setItem('userId', user.id);
       document.location.replace('/');
     } else {
       alert(response.statusText);
