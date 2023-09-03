@@ -19,7 +19,8 @@ router.get('/', withAuth, async (req, res) => {
     res.render('dashboard', {
       ...user,
       userBlogPosts,
-      logged_in: true
+      logged_in: true,
+      onDashboard: true
     });
   } catch (err) {
     res.render(500).json(err);
