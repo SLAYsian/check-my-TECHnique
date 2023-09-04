@@ -27,6 +27,15 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// Get post form
+router.get('create', withAuth, function (req, res) {
+  try {
+    res.render('create');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // Create blog post
 router.post('/create', withAuth, async (req, res) => {
   try {

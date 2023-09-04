@@ -10,15 +10,6 @@
 <body>
   <div class="flex-column justify-space-around content">
     <header class="display-flex justify-space-around align-center p-2">
-      <nav class="nav">
-        <a href="/" class="nav-link">Home</a>
-          {{#if logged_in}}
-        <a href="/dashboard" class="nav-link">Dashboard</a>
-       <button class="btn-styled" id="logout">Log Out</a></button>
-       {{else}}
-        <a href="/login" class="nav-link"id="login">Login/Signup</a>
-        {{/if}}
-      </nav>
       <h1>
         {{#if onDashboard}}
           My Dashboard
@@ -26,6 +17,16 @@
           TECHnique - Tech Blog
         {{/if}}
       </h1>
+      <nav class="nav">
+        <button class="btn-styled"><a href="/" class="nav-link">Home</a></button>
+          {{#if logged_in}}
+          <button class="btn-styled"><a href="/dashboard" class="nav-link">Dashboard</a></button>
+       <button class="btn-styled" id="logout">Log Out</a></button>
+       {{else}}
+        <button class="btn-styled"><a href="/login" class="nav-link"id="login">Login/Signup</a></button>
+        {{/if}}
+      </nav>
+
     </header>
   </div>
   <main>
