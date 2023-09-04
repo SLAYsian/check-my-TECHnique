@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     const userBlogPosts = await BlogPost.findAll({
-      where: { user_id: req.session.user.id },
+      where: { user_id: req.session.user_id },
       attributes: ['title', 'content', 'date_created']
     });
 
@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req, res) => {
       onDashboard: true
     });
   } catch (err) {
-    res.render(500).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -41,7 +41,7 @@ router.post('/create', withAuth, async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create({
       ...req.body,
-      user_id: req.session.user.id,
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newBlogPost);

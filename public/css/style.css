@@ -7,9 +7,9 @@
   --babyblue: #e8f3fe;
   --bg: linear-gradient(
     to bottom,
-    #00f7ffa4,
+    #00000080,
     #ff6bf348
-  ), url(https://www.transparenttextures.com/patterns/bright-squares.png);
+  ), url("https://www.transparenttextures.com/patterns/bright-squares.png");
 }
 
 body {
@@ -47,7 +47,7 @@ button, .btn-styled {
   bottom: -3%;
   z-index: -1;
   display: block;
-  background: var(--bg);
+  background-image: var(--bg);
   background-size:cover;
   width: 110%;
   height: 110%;
