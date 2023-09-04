@@ -38,30 +38,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const blogPosts = await BlogPost.findByPk(req.params.id, {
-//       include: [{
-//         model: User,
-//         as: 'creator',
-//         attributes: ['username']
-//       },
-//     {
-//       model: Comment,
-//       as: 'comments',
-//       attributes: ['comment', 'date_created'],
-//       include: {
-//         model: User,
-//         attributes: ['username']
-//       }
-//     }]
-//     });
-//     res.status(200).json(blogPosts);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 // Post comment
 router.post('/:id', withAuth, async (req,res) => {
   try {
@@ -78,11 +54,12 @@ router.post('/:id', withAuth, async (req,res) => {
       blog_post_id: req.params.id
   });
 
-      res.status(200).json(newComment);
+  res.redirect(`/api/blogposts/${req.params.id}`);
 
     } catch (err) {
       res.status(500).json(err);
     }
 });
+
 
 module.exports = router;

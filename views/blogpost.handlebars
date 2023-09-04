@@ -32,7 +32,7 @@
     </div>
     {{#each comments}}
       <p class="card-body">{{this.comment}}</p>
-      <p>Posted by {{this.comment.username }} on {{format_date this.date_created}}</p>
+      <p>Posted by {{this.user.username }} on {{format_date this.date_created}}</p>
     {{/each}}
   </div>
   <div class="card flex-wrap">
