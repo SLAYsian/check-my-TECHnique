@@ -4,6 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // Get dashboard
 router.get('/', withAuth, async (req, res) => {
+  console.log("Session Data:", req.session);
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password']},
