@@ -1,95 +1,95 @@
-const router = require('express').Router();
-const { BlogPost, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const router = require('express').Router();
+// const { BlogPost, User } = require('../../models');
+// const withAuth = require('../../utils/auth');
 
-// Get dashboard
-router.get('/', withAuth, async (req, res) => {
-  console.log("Session Data:", req.session);
-  try {
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password']},
-    });
+// // Get dashboard
+// router.get('/',  async (req, res) => {
+//   console.log("Session Data:", req.session);
+//   try {
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password']},
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    const userBlogPosts = await BlogPost.findAll({
-      where: { user_id: req.session.user_id },
-      attributes: ['title', 'content', 'date_created']
-    });
+//     const userBlogPosts = await BlogPost.findAll({
+//       where: { user_id: req.session.user_id },
+//       attributes: ['title', 'content', 'date_created']
+//     });
 
-    res.render('dashboard', {
-      ...user,
-      userBlogPosts,
-      logged_in: true,
-      onDashboard: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('dashboard', {
+//       ...user,
+//       userBlogPosts,
+//       logged_in: true,
+//       onDashboard: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-// Get post form
-router.get('create', withAuth, function (req, res) {
-  try {
-    res.render('create');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
+// // Get post form
+// router.get('create', withAuth, function (req, res) {
+//   try {
+//     res.render('create');
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// })
 
-// Create blog post
-router.post('/create', withAuth, async (req, res) => {
-  try {
-    const newBlogPost = await BlogPost.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+// // Create blog post
+// router.post('/create', withAuth, async (req, res) => {
+//   try {
+//     const newBlogPost = await BlogPost.create({
+//       ...req.body,
+//       user_id: req.session.user_id,
+//     });
 
-    res.status(200).json(newBlogPost);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(newBlogPost);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
-// Update blog post
-router.put('blogposts/:id', withAuth, async (req, res) => {
-  try {
-    const blogPost = await BlogPost.update(
-      {
-        title: req.body.title,
-        content: req.body.content,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-    res.status(200).json(blogPost);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// // Update blog post
+// router.put('blogposts/:id', withAuth, async (req, res) => {
+//   try {
+//     const blogPost = await BlogPost.update(
+//       {
+//         title: req.body.title,
+//         content: req.body.content,
+//       },
+//       {
+//         where: {
+//           id: req.params.id,
+//         },
+//       }
+//     );
+//     res.status(200).json(blogPost);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-//  Delete blog post
-router.delete('blogposts/:id', withAuth, async (req, res) => {
-  try {
-    const blogPostData = await BlogPost.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+// //  Delete blog post
+// router.delete('blogposts/:id', withAuth, async (req, res) => {
+//   try {
+//     const blogPostData = await BlogPost.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    if (!blogPostData) {
-      res.status(404).json({ message: 'No post found with this id!' });
-      return;
-    }
+//     if (!blogPostData) {
+//       res.status(404).json({ message: 'No post found with this id!' });
+//       return;
+//     }
 
-    res.status(200).json(blogPostData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(blogPostData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-module.exports = router;
+// module.exports = router;
