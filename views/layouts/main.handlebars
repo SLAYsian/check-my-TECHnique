@@ -12,9 +12,12 @@
     <header class="display-flex justify-space-around align-center p-2">
       <nav class="nav">
         <a href="/" class="nav-link">Home</a>
+          {{#if logged_in}}
         <a href="/dashboard" class="nav-link">Dashboard</a>
-        <a href="/login" class="nav-link"id="login">Login/Signup</a>
        <button class="btn-styled" id="logout">Log Out</a></button>
+       {{else}}
+        <a href="/login" class="nav-link"id="login">Login/Signup</a>
+        {{/if}}
       </nav>
       <h1>
         {{#if onDashboard}}

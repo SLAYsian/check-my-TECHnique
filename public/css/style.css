@@ -1,0 +1,92 @@
+:root {
+  --blacktrans: #00000033;
+  --neonpurp: #bf00ff;
+  --neonpurptrans: #bf00ffa8;
+  --neonltblue: #00f7ff;
+  --blue: #09009f;
+  --babyblue: #e8f3fe;
+}
+
+body {
+  background: linear-gradient(
+    to bottom,
+    #6f80ff80,
+    #ff6bf348);
+}
+
+.nav-link {
+  font-size: 1.1em;
+  color: var(--neonltblue)
+}
+
+
+a {
+  color: var(--neonltblue);
+}
+
+button, .btn-styled {
+  padding: .5rem;
+  text-align: center;
+  border-radius: 15px;
+  border-color: var(--neonpurptrans);
+  box-shadow: 8px 8px 3px 1px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(#000000 0%, #ffffff00 100%);
+  cursor: pointer;
+  font-size: 1.2em;
+  color: var(--neonltblue);
+}
+
+/* .content::before {
+  content: "";
+  position: fixed;
+  left: -3%;
+  right: -3%;
+  top: -3%;
+  bottom: -3%;
+  z-index: -1;
+  display: block;
+  background: linear-gradient(
+    to bottom,
+    #6f80ff80,
+    #ff6bf348);
+  background-size:cover;
+  width: 110%;
+  height: 110%;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+} */
+main {
+  position: relative;
+  height: 65vh;
+  }
+
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      #00000080,
+      #ff6bf348);  
+    background-size:cover;
+    padding: 2rem;
+    border: var(--neonpurptrans) 1px solid;
+    border-radius: 5px;
+    box-shadow: 20px 20px 5px 3px var(--blacktrans);
+    z-index: 10;
+    text-align: left;
+  }
+
+  .modal-content {
+    background: radial-gradient(#ffffff38 0%, #000000 100%);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px 3px var(--blacktrans);
+    background: radial-gradient(#000000 0%, #ffffff00 100%);
+  }

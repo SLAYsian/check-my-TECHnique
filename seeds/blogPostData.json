@@ -32,7 +32,7 @@
     "content": "Server-side APIs allow developers to access data made available by third-party companies and organizations. To use this data, developers can create applications that make requests to URLs, or endpoints, provided by those third-party organizations—and in turn, the endpoints respond with the requested data."
   },
   {
-    "title": "MondoDB",
+    "title": "MongoDB",
     "content": "MongoDB is a general purpose, document-based, distributed NoSQL database built for web application developers in the cloud era. It's one of the most popular database choices for modern applications."
 }
 ]
