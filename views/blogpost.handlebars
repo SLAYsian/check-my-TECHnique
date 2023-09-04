@@ -1,21 +1,26 @@
 <div class="display-flex flex-column">
   {{#if onDashboard}}
   <div class="card flex-wrap">
-    <form action="/blogposts/{{this.id}}" method="PUT" class="form new-post-form">
+    <form action="/api/blogposts/{{this.id}}?_method=PUT" method="POST" class="form new-post-form">
       <div class="card-header">
         <div class="form-group">
-          <input class="form-input" type="text" id="post-title" name="title">{{this.title}}</input>
+          <label for="post-title">Title:</label>
+          <input class="form-input" type="text" id="post-title" name="title" value="{{this.title}}"></input>
         </div>
       </div>
       <div class="card-body">
         <div class="form-group">
+          <label for="post-content">Content:</label>
           <textarea class="form-input" id="post-content" name="content">{{this.content}}</textarea>
         </div>
       <div class="form-group">
-        <button class="btn-styled"><a href="/blogposts/edit/{{this.id}}">Edit</a></button>
-        <button class="btn-styled"><a href="/blogposts/{{this.id}}">Delete</a></button>
+        <button type="submit" class="btn-styled">Edit</button>
       </div>
       </div> 
+    </form>
+    <form action="/api/blogposts/{{this.id}}?_method=DELETE" method="POST" class="form">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn-styled">Delete</button>
     </form>
   </div>
   {{else}}

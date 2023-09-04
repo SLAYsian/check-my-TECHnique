@@ -4,13 +4,13 @@ const withAuth = require('../../utils/auth');
 
 // Get single blog post
 router.get('/:id', async (req, res) => {
-  console.log("Blog post route reached!")
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id, {
       include: [{
         model: User,
         as: 'creator',
-        attributes: ['username']
+        attributes: ['username', 'id'],
+        foreignKey: 'user_id'
       },
     {
       model: Comment,
@@ -33,6 +33,8 @@ router.get('/:id', async (req, res) => {
       ...blogPost,
       onDashboard: req.session.user_id === blogPost.creator.id
     });
+    console.log("Logged-in user:", req.session.user_id);
+    console.log("Blog post creator:", blogPost.creator.id);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,6 +62,48 @@ router.post('/:id', withAuth, async (req,res) => {
       res.status(500).json(err);
     }
 });
+
+// Update blog post
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const blogPost = await BlogPost.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.redirect('/dashboard');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Delete route
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!blogPostData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+    res.redirect('/dashboard');
+    // res.status(200).json(blogPostData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 
 module.exports = router;
