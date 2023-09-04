@@ -3,7 +3,7 @@
   {{#each blogPosts}}
       <div class="card flex-wrap">
       <div class="card-header">
-        <h3><a href="/blogPost">{{this.title}}</a></h3>
+        <h3><a href="/api/blogposts/{{this.id}}">{{this.title}}</a></h3>
         <p>{{format_date this.date_created}}</p>
       </div>
     </div>

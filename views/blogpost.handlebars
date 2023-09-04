@@ -1,0 +1,53 @@
+<div class="display-flex flex-column">
+  {{#if onDashboard}}
+  <div class="card flex-wrap">
+    <form action="/blogposts/{{this.id}}" method="PUT" class="form new-post-form">
+      <div class="card-header">
+        <div class="form-group">
+          <input class="form-input" type="text" id="post-title" name="title">{{this.title}}</input>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <textarea class="form-input" id="post-content" name="content">{{this.content}}</textarea>
+        </div>
+      <div class="form-group">
+        <button class="btn-styled"><a href="/blogposts/edit/{{this.id}}">Edit</a></button>
+        <button class="btn-styled"><a href="/blogposts/{{this.id}}">Delete</a></button>
+      </div>
+      </div> 
+    </form>
+  </div>
+  {{else}}
+  <div class="card flex-wrap">
+    <div class="card-header">
+      <h3>{{this.title}}</h3>
+      <p>Posted by {{this.creator.username }} on {{format_date this.date_created}}</p>
+    </div>
+    <p class="card-body">{{this.content}}</p>
+  </div>
+  <div class="card flex-wrap">
+    <div class="card-header">
+      <h3>Comments</h3>
+    </div>
+    {{#each comments}}
+      <p class="card-body">{{this.comment}}</p>
+      <p>Posted by {{this.comment.username }} on {{format_date this.date_created}}</p>
+    {{/each}}
+  </div>
+  <div class="card flex-wrap">
+    <div class="card-header">
+      <h3>Add Comment</h3>
+    </div>
+    <form action="/api/blogposts/{{this.id}}" method="POST" class="form new-post-form">
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <input class="form-input" type="text" id="post-title" name="comment" />
+      </div>
+        <div class="form-group">
+          <button type="submit" class="mt-2 btn-styled">Submit</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
+</div>

@@ -1,14 +1,14 @@
 <div class="row modal">
   <div class="col-md-12 modal-content">
     <h2>Create New Post</h2>
-    <form action="/api/dashboard/create" class="form new-post-form">
+    <form action="/create" method="POST" class="form new-post-form">
       <div class="form-group">
         <label for="post-title">Title:</label>
-        <input class="form-input" type="text" id="post-title" name="post-title" />
+        <input class="form-input" type="text" id="post-title" name="title" />
       </div>
       <div class="form-group">
         <label for="post-content">Content:</label>
-        <textarea class="form-input" id="post-content" name="post-content"></textarea>
+        <textarea class="form-input" id="post-content" name="content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="mt-2 btn btn-primary">Create</button>

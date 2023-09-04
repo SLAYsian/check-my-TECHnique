@@ -1,4 +1,4 @@
-# TECHnique Tech Blog Site
+# TECHnique The Tech Blog Site
 
   ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -14,19 +14,20 @@
   6. [Questions](#questions)
 
 > ## USAGE
-https://github.com/SLAYsian/SQLin-Life/assets/127693250/1a33d6c3-c4f7-4784-a16b-4b2db8a4983f
-#### Install all npm packages<br/>
-#### Update your username and password for MySQL<br/>
-#### Run the db/schema.sql file<br/>
-#### Run npm start from the terminal<br/>
-#### To view all departments, roles or employees, select from the main menu<br/><br/>![view departments](./images/view-depts.png)<br/>![view roles](./images/view-roles.png)<br/>![view employees](./images/view-employees.png)
-#### To add department, add role, add employee, update employee role or uodate employee manager, select from the main menu and answer prompts in the command line<br/><br/>![add department](./images/add-dept.png)<br/><br/>![add role](./images/add-role.png)<br/><br/>![add employee](./images/add-employee.png)<br/><br/>![update role](./images/update-role.png)<br/><br/>![update manager](./images/update-manager.png)
+#### Sign up for the tech blog at [TECHnique - The Tech Blog](https://technique-d7b715dd2fa4.herokuapp.com/)<br/>
+#### View blog posts without an account<br/>
+#### In order to post blogs or leave comments, create an account.<br/>
+#### Once you've created an account or logged in, go to your dashboard to create a new post or view, edit, delete posts you've made.<br/>
+#### Click on the title of your post to edit or delete it.<br/><br/>![]()<br/>
+#### From the homepage, click on the title of a blog to leave a comment.<br/><br/>![]()<br/>
 
 > ## REFERENCES
 - UDEMY Dr Angela Yu (https://appbrewery.com/)
 - UDEMY Colt Steele - The Ultimate MySQL Bootcamp: Go from SQL Beginner to Expert (https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/)
+- UDEMY Jonas Schmedtmann courses (https://codingheroes.io/resources/)
 - W3Schools (https://www.w3schools.com/)
-- UConn Coding Bootcamp - Module 12 SQL Mini Project
+- UConn Coding Bootcamp - Module 14 MVC Lessions
+- Blog content taken directly from The Full-Stack Blog (https://coding-boot-camp.github.io/full-stack/)
 
 > ## LICENSE
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)<br/>
@@ -41,4 +42,4 @@ Please see the LICENSE file for details
 - Submit a pull request for review
 
 > ## QUESTIONS
-For any questions, please reach out to me via GitHub (https://github.com/SLAYsian).
+For any questions, please reach out to me via [GitHub](https://github.com/SLAYsian).

@@ -233,15 +233,23 @@ router.post('/create', withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-
-    res.status(200).json(newBlogPost);
+    res.redirect('/dashboard');
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+// Get blog post
+router.get('/create', withAuth, async (req, res) => {
+  try {
+    res.render('create');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 // Update blog post
-router.put('blogposts/:id', withAuth, async (req, res) => {
+router.put('blogposts/edit/:id', withAuth, async (req, res) => {
   try {
     const blogPost = await BlogPost.update(
       {

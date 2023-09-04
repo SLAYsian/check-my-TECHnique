@@ -4,8 +4,9 @@ const withAuth = require('../../utils/auth');
 
 // Get single blog post
 router.get('/:id', async (req, res) => {
+  console.log("Blog post route reached!")
   try {
-    const blogPosts = await BlogPost.findByPk(req.params.id, {
+    const blogPostData = await BlogPost.findByPk(req.params.id, {
       include: [{
         model: User,
         as: 'creator',
@@ -21,14 +22,48 @@ router.get('/:id', async (req, res) => {
       }
     }]
     });
-    res.status(200).json(blogPosts);
+
+    if (!blogPostData) {
+      res.status(404).send('Blog post not found!');
+      return;
+    }
+
+    const blogPost = blogPostData.get({ plain: true });
+    res.render('blogpost', { 
+      ...blogPost,
+      onDashboard: req.session.user_id === blogPost.creator.id
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const blogPosts = await BlogPost.findByPk(req.params.id, {
+//       include: [{
+//         model: User,
+//         as: 'creator',
+//         attributes: ['username']
+//       },
+//     {
+//       model: Comment,
+//       as: 'comments',
+//       attributes: ['comment', 'date_created'],
+//       include: {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     }]
+//     });
+//     res.status(200).json(blogPosts);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 // Post comment
-router.post('/:id/comments', withAuth, async (req,res) => {
+router.post('/:id', withAuth, async (req,res) => {
   try {
     const blogPost = await BlogPost.findByPk(req.params.id);
     if (!blogPost) {
