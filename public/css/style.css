@@ -17,6 +17,10 @@ body {
   padding-right: 1em;
 }
 
+header {
+  color: var(--neonpurp);
+}
+
 .nav-link {
   font-size: 1.1em;
   color: var(--neonltblue)
@@ -69,6 +73,7 @@ box-shadow: 8px 8px 3px 1px rgba(0, 0, 0, 0.2);
 main {
   position: relative;
   height: 65vh;
+  margin: 1rem;
   }
 
   .modal {
