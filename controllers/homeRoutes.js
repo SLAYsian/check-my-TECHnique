@@ -203,7 +203,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //   res.send('Dashboard route for logged-in user');
 // });
 
-// NOTES: Testing ✅
+// NOTES: Testing Route ✅
 // router.get('/dashboard', (req, res) => {
 //   res.send('Dashboard route hit');
 // });
@@ -216,8 +216,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
 //   } res.render('/login');
 // })
 
+
 // Get post form
-router.get('create', withAuth, function (req, res) {
+router.get('/create', withAuth, async (req, res) => {
   try {
     res.render('create');
   } catch (err) {
