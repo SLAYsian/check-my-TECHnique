@@ -36,8 +36,7 @@
       <h3>Comments</h3>
     </div>
     {{#each comments}}
-      <p class="card-body">{{this.comment}}</p>
-      <p>Posted by {{this.user.username }} on {{format_date this.date_created}}</p>
+      <p class="card-body">"{{this.comment}}" <span>- Posted by {{this.user.username }} on {{format_date this.date_created}}</span></p>
     {{/each}}
   </div>
   <div class="card flex-wrap">
