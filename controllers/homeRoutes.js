@@ -54,7 +54,7 @@ router.get('/signup', (req, res) => {
 // Get dashboard
 router.get('/dashboard', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/dashboard');
+    // res.redirect('/dashboard');
     return;
   } res.render('dashboard');
 })

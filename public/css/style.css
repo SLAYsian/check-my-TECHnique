@@ -13,7 +13,8 @@
 }
 
 body {
-  background: var(--bg)
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .nav-link {
@@ -97,4 +98,11 @@ main {
     padding: 10px;
     box-shadow: 10px 10px 5px 3px var(--blacktrans);
     background: radial-gradient(#000000 0%, #ffffff00 100%);
+  }
+
+  @media (max-width: 768px) {
+
+form .form-group {
+  font-size: .5rem;
+}
   }
