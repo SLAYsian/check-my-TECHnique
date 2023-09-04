@@ -54,31 +54,161 @@ router.get('/signup', (req, res) => {
 });
 
 // SECTION: DASHBOARD
-// Get dashboard
+
+// router.get('/dashboard', withAuth, async (req, res) => {
+
+// router.get('/dashboard', async (req, res) => {
+// console.log("Session Data:", req.session);
+// try {
+//   const userData = await User.findByPk(req.session.user_id, {
+//     attributes: { exclude: ['password']},
+//   });
+
+//   const user = userData.get({ plain: true });
+
+//   const userBlogPosts = await BlogPost.findAll({
+//     where: { user_id: req.session.user_id },
+//     attributes: ['title', 'content', 'date_created']
+//   });
+
+//   res.render('dashboard', {
+//     ...user,
+//     userBlogPosts,
+//     logged_in: true,
+//     onDashboard: true
+//   });
+// } catch (err) {
+//   res.status(500).json(err);
+// }
+// });
+// 
+
+// NOTES: Testing User data
 router.get('/dashboard', withAuth, async (req, res) => {
-console.log("Session Data:", req.session);
-try {
-  const userData = await User.findByPk(req.session.user_id, {
-    attributes: { exclude: ['password']},
-  });
+  if (!req.session.logged_in) {
+    res.send('User not logged in');
+    return;
+  }
+  try {
+    console.log(req.session.user_id);
+    // const userData = await User.findByPk(req.session.user_id);
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+    
+    const user = userData.get({ plain: true });
 
-  const user = userData.get({ plain: true });
+    const blogData = await BlogPost.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      raw: true
+    });
 
-  const userBlogPosts = await BlogPost.findAll({
-    where: { user_id: req.session.user_id },
-    attributes: ['title', 'content', 'date_created']
-  });
-
-  res.render('dashboard', {
-    ...user,
-    userBlogPosts,
-    logged_in: true,
-    onDashboard: true
-  });
-} catch (err) {
-  res.status(500).json(err);
-}
+    console.log("User Data:", user);
+    res.render('dashboard', { 
+      ...user,
+      blogPosts: blogData,
+      logged_in: true,
+      onDashboard: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// NOTES: Testing withAuth ✅
+// router.get('/dashboard', withAuth, async (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.send('User not logged in');
+//     return;
+//   }
+
+//   try {
+
+//     const blogData = await BlogPost.findAll({
+//       where: {
+//         user_id: req.session.user_id
+//       },
+//       raw: true
+//     });
+
+//     res.render('dashboard', { blogPosts: blogData });
+//     console.log(blogData)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// NOTES: Testing rendering blog posts ✅
+// router.get('/dashboard', async (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.send('User not logged in');
+//     return;
+//   }
+
+//   try {
+//     const blogData = await BlogPost.findAll({
+//       where: {
+//         user_id: req.session.user_id
+//       },
+//       raw: true
+//     });
+
+//     res.render('dashboard', { blogPosts: blogData });
+//     console.log(blogData)
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+// NOTES: Testing fetching blog posts raw data ✅
+// router.get('/dashboard', async (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.send('User not logged in');
+//     return;
+//   }
+
+//   try {
+//     const blogData = await BlogPost.findAll({
+//       where: {
+//         user_id: req.session.user_id
+//       },
+//       raw: true
+//     });
+
+//     res.send(blogData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+// NOTES: Testing Rendering ✅
+// router.get('/dashboard', (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.send('User not logged in');
+//     return;
+//   }
+//   res.render('dashboard');
+// });
+
+// NOTES: Testing session ✅
+// router.get('/dashboard', (req, res) => {
+//   if (!req.session.logged_in) {
+//     res.send('User not logged in');
+//     return;
+//   }
+//   res.send('Dashboard route for logged-in user');
+// });
+
+// NOTES: Testing ✅
+// router.get('/dashboard', (req, res) => {
+//   res.send('Dashboard route hit');
+// });
+
+// NOTES: Code if separate dashboardRoutes file
 // router.get('/dashboard', (req, res) => {
 //   if (req.session.logged_in) {
 //     res.redirect('dashboard');
