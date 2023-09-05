@@ -15,11 +15,11 @@
 
 > ## USAGE
 #### Sign up for the tech blog at [TECHnique - The Tech Blog](https://technique-d7b715dd2fa4.herokuapp.com/)<br/>
-#### View blog posts without an account<br/>
-#### In order to post blogs or leave comments, create an account.<br/>
-#### Once you've created an account or logged in, go to your dashboard to create a new post or view, edit, delete posts you've made.<br/>
-#### Click on the title of your post to edit or delete it.<br/><br/>![]()<br/>
-#### From the homepage, click on the title of a blog to leave a comment.<br/><br/>![]()<br/>
+#### View blog posts without an account<br/><br/>![homepage](./public/images/home.png)<br/>
+#### In order to post blogs or leave comments, create an account or log in to an existing account.<br/><br/>![login](./public/images/login.png)<br/>
+#### Once you've created an account or logged in, go to your dashboard to create a new post or view, edit, delete posts you've made.<br/><br/>![dashboard](./public/images/dashboard.png)<br/>![create](./public/images/newpost.png)
+#### Click on the title of your post to edit or delete it.<br/><br/>![edit](./public/images/edit.png)<br/>
+#### From the homepage, click on the title of a blog to leave a comment.<br/><br/>![comment](./public/images/post-comments.png)<br/>
 
 > ## REFERENCES
 - UDEMY Dr Angela Yu (https://appbrewery.com/)
